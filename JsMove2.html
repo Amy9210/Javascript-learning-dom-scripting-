@@ -16,8 +16,8 @@ function positionMessage()
 function moveMessage()
 {
 	var elem=document.getElementById("message")
-	var xpos=parseInt(elem.style.left);
-	var ypos=parseInt(elem.style.top);
+	var xpos=parseInt(elem.style.left);//用parseInt函数将数值取出	
+        var ypos=parseInt(elem.style.top);
 	/*if(xpos==200&&ypos==100)
 	{
 		return true;
@@ -38,6 +38,15 @@ function moveMessage()
 	{
 		ypos--;
 	}
+	//变色	
+        if(ypos>100)
+	  {
+		   elem.style.color="red";
+	  }
+	else
+	  {
+		   elem.style.color="blue";
+	  }
 	elem.style.left=xpos+"px";
 	elem.style.top=ypos+"px";
 	movement=setTimeout("moveMessage()",10);//调用
@@ -68,7 +77,6 @@ function addLoadEvent(func)
 addLoadEvent(positionMessage);
 addLoadEvent(moveMessage)
 
-addLoadEvent(changeColor)
 </script>
 </head>
 
