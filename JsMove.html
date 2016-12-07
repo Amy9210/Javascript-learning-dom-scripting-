@@ -1,0 +1,47 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<script>
+function positionMessage()
+{
+	var elem=document.getElementById("message");
+	elem.style.position="absolute";
+	elem.style.left="100px";
+	elem.style.top="100px";
+	movement=setTimeout("moveMessage()",5000)
+}
+
+function moveMessage()
+{
+	var elem=document.getElementById("message")
+	elem.style.left="200px";
+}
+
+function addLoadEvent(func)
+{
+	var oldonload=window.onload;
+	if(typeof window.onload!='function')
+	{
+		window.onload=func;
+	}
+	else
+	{
+		window.onload=function()
+		{
+			oldonload();
+			func();
+		}
+	}
+}
+
+addLoadEvent(positionMessage);
+addLoadEvent(moveMessage);
+</script>
+</head>
+
+<body>
+<p id="message">whee!</p>
+</body>
+</html>
